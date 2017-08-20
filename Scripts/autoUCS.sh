@@ -32,9 +32,9 @@ _ucsLoc='/var/tmp/scripts'
 
 
 #Create the UCS on remote device and download it to local device via SCP
-_sshOut=$(ssh -i /root/.ssh/f5backup $_user@$_remoteF5 <<- EOF
+_sshOut=$(ssh -i /root/.ssh/f5AutoUCS $_user@$_remoteF5 <<- EOF
  tmsh save sys ucs $_ucsLoc/f5AutoUCS-$_now
- scp -i /root/.ssh/f5backup $_ucsLoc/f5AutoUCS-$_now.ucs $_user@$_localF5:$_ucsLoc/f5AutoUCS-$_now.ucs
+ scp -i /root/.ssh/f5AutoUCS $_ucsLoc/f5AutoUCS-$_now.ucs $_user@$_localF5:$_ucsLoc/f5AutoUCS-$_now.ucs
  rm -rf $_ucsLoc/f5AutoUCS-$_now.ucs
 EOF)
 
